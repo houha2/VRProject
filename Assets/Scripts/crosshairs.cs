@@ -8,7 +8,7 @@ public class crosshairs : MonoBehaviour {
     public float range = 75f;
     public float force = 100f;
     public Transform endOfShoot;
-    private OVRCameraRig simCam;
+    public OVRCameraRig simCam;
     private WaitForSeconds duration = new WaitForSeconds(0.08f);
     private LineRenderer beamLine;
     private float nextShoot;
@@ -43,7 +43,9 @@ public class crosshairs : MonoBehaviour {
             {
                 beamLine.SetPosition(1, simCam.transform.forward * range);
             }
+            Debug.DrawRay(beamOrigin, simCam.rightEyeCamera.transform.forward * range, Color.green);
         }
+        
     }
     private IEnumerator effect()
     {
